@@ -11,7 +11,7 @@ function ChildCarousel(props) {
       autoplay: false,
       bound: false,
       rewind: false,
-      swipeThreshold: false,
+      // swipeThreshold: true,
       dragThreshold: false,
       perView: 1,
       peek: {
@@ -25,12 +25,18 @@ function ChildCarousel(props) {
   }, [outerGlide, childGlideList, slide]);
 
   return (
-    <div className={`glide inner-glide-${slide}`}>
+    <div className={`glide inner-glide-${slide}`} style={{ height: "400px" }}>
       <div data-glide-el="track" className="glide__track">
         <ul className="glide__slides">
-          <li className="glide__slide">Child Slide {slide}-1</li>
-          <li className="glide__slide">Child Slide {slide}-2</li>
-          <li className="glide__slide">Child Slide {slide}-3</li>
+          <li className="glide__slide">
+            <a href="https://google.com">Child Slide {slide}-1</a>
+          </li>
+          <li className="glide__slide">
+            <a href="https://google.com">Child Slide {slide}-2</a>
+          </li>
+          <li className="glide__slide">
+            <a href="https://google.com">Child Slide {slide}-3</a>
+          </li>
         </ul>
       </div>
       {/* Inner slide arrows */}
@@ -42,6 +48,12 @@ function ChildCarousel(props) {
         <button className=" glide__arrow--right right-arrow" data-glide-dir=">">
           Next
         </button>
+      </div>
+      {/* Control Navs */}
+      <div className="glide__bullets" data-glide-el="controls[nav]">
+        <button className="glide__bullet" data-glide-dir="=0"></button>
+        <button className="glide__bullet" data-glide-dir="=1"></button>
+        <button className="glide__bullet" data-glide-dir="=2"></button>
       </div>
     </div>
   );
